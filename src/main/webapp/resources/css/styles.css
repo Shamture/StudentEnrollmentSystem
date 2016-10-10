@@ -55,12 +55,20 @@ section{
 .article1{
 	text-align: center;
 }
-.article2{
+
+.article2-login{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	background: #ddd;
 	text-align: center;
 }
+
+.article2{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+
 .article3{
 	text-align: center;
 }

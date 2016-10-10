@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<title>Student Enrollment System</title>
+		<title>Save Career</title>
 		
 		<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
@@ -41,24 +41,21 @@
 				<article class="col-xs-12- col-sm-12 col-md-4 col-lg-4 article1">
 					
 				</article>
-				<article class="col-xs-12 col-sm-12 col-md-4 col-lg-4 article2-login">
+				<article class="col-xs-12 col-sm-12 col-md-4 col-lg-4 article2">
 					<h2>
-						Sign In
+						New Career
 					</h2>
-					<form action="${pageContext.request.contextPath}/login" method="post">
+					<form action="${pageContext.request.contextPath}/saveCareer" method="post">
 						<div class="form-group">
-							<input class="form-control" type="text" name="txt-username" placeholder="Username"/>
+							<input class="form-control" type="text" name="name" placeholder="Career Name"/>
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="text" name="txt-password" placeholder="Password"/>
-						</div>
-						<div class="form-group checkbox">
-							<label>
-								<input type="checkbox" name="chk-remember" value="Remember Me"/> Remember Me<br/>
-							</label>
+							<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
 						</div>
 						<div class="form-group">
-							<input class="btn btn-success btn-block" type="submit" name="signin" value="Sign In"/>
+							<c:if test="${not empty message}">
+								${message}
+							</c:if>
 						</div>
 					</form>
 				</article>
