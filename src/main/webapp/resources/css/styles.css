@@ -1,0 +1,90 @@
+/*
+=============================
+GENERAL
+=============================
+*/
+
+.vam{
+	padding-top: 10px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+/*
+=============================
+HEADER
+=============================
+*/
+
+header{
+	background: black;
+	color: #fff;
+	height: 50px;
+}
+
+.left-header{
+	font-size: 25pt;
+}
+
+.right-header{
+	text-align: right;
+}
+
+.left-header-link{
+	color: #999;
+	font-size: 18pt;
+}
+
+.left-header-link:hover{
+	color: #fff;
+}
+
+.left-header-link:visited{
+	text-decoration: none;
+}
+
+/*
+=============================
+BODY
+=============================
+*/
+
+section{
+	padding-top: 50px;
+}
+
+.article1{
+	text-align: center;
+}
+.article2{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: #eee;
+	text-align: center;
+}
+.article3{
+	text-align: center;
+}
+
+/*
+=============================
+FOOTER
+=============================
+*/
+
+
+.footer{
+	position: fixed;
+	bottom: 0;
+  	width: 100%;
+	text-align: center;
+	background: #ddd;
+	color: #000;
+	height: 50px;
+	padding-top: 10px;
+	font-weight: bold;
+}
+
