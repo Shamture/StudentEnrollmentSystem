@@ -45,7 +45,7 @@
 					<h2>
 						Sign In
 					</h2>
-					<form action="${pageContext.request.contextPath}/login" method="post">
+					<form action="${pageContext.request.contextPath}/allCareers" method="get">
 						<div class="form-group">
 							<input class="form-control" type="text" name="txt-username" placeholder="Username"/>
 						</div>

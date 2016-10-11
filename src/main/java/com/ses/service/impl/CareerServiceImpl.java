@@ -33,8 +33,7 @@ public class CareerServiceImpl implements CareerService {
 
 	@Override
 	public List<Career> listAllCareers() {
-		//later ...
-		return null;
+		return (List<Career>) careerDAO.findAll();
 	}
 
 	@Override

@@ -18,9 +18,6 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.ses.service.CareerService;
-import com.ses.service.impl.CareerServiceImpl;
-
 
 @EnableJpaRepositories(basePackages={"com.ses.dao"}) //to activate the DAO repositories
 @EnableTransactionManagement
@@ -111,10 +108,24 @@ public class ApplicationContext {
 	My Owns Beans  
 	===============================================================================================================
 	*/
+	/*
+	THERE ARE 2 OPTIONS TO ADD MY OWN BEANS INTO DE SPRING CONTAINER:
 	
-	@Bean
-	public CareerService careerService(){
-		return new CareerServiceImpl();
-	}
-	
+		OPTION 1 - USING AN ANNOTATION OVER THE CLASS DIRECTLY:
+		-------------------------------------------------------
+			@Repository -->	Entities
+			@Service 	--> Services
+			
+			Example:			
+			
+			@Service
+			public class CareerServiceImpl implements CareerService {
+			
+		OPTION 2 - HERE, IN APPLICATIONCONTEXT:
+		-------------------------------------------------------
+			@Bean
+			public CareerService careerService(){
+				return new CareerServiceImpl();
+			}
+	*/
 }

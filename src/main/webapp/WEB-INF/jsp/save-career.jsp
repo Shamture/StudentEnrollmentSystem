@@ -48,12 +48,12 @@
 		<div class="container">
 			<section class="row section-admin">
 				<article class="col-xs-12- col-sm-12 col-md-2 col-lg-2 article1-admin">
-					<ul class="list-group">
+					<div class="list-group">
 						<a href="#" class="list-group-item">Careers</a>
 						<a href="#" class="list-group-item">Students</a>
 						<a href="#" class="list-group-item">Teachers</a>
 						<a href="#" class="list-group-item">Subjects</a>
-					</ul>
+					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
 					<h2>

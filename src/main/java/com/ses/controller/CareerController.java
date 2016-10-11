@@ -1,5 +1,7 @@
 package com.ses.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,53 @@ import com.ses.service.CareerService;
 public class CareerController {
 	
 	@Autowired
+	private Career career;
+	
+	@Autowired
 	private CareerService careerService;
+	
+	
+	/* =========================================================== */
+	/*			       SELECTING ALL CAREER    					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/allCareers", method = RequestMethod.GET)
+	public String selectCareer(Model model){
+		
+		String goodMessage = "";
+		String badMessage = "";
+		List<Career> careers = null;
+
+		try {
+			careers = careerService.listAllCareers();
+			if (careers.size() == 0) {
+				goodMessage = "There is no any Careers yet. Add someone!";
+			}
+			
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}
+		
+		model.addAttribute("goodMessage", goodMessage);
+		model.addAttribute("badMessage", badMessage);
+		model.addAttribute("careers", careers);
+		
+		return "all-careers";
+	}
+	
+	/* =========================================================== */
+	/*			              CAREER FORM   					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/saveCareerForm", method = RequestMethod.GET)
+	public String saveCareerForm(){
+		return "save-career";
+	}
+	
+	
+	/* =========================================================== */
+	/*			           SAVING A CAREER    					   */
+	/* =========================================================== */
 	
 	@RequestMapping(value="/saveCareer", method = RequestMethod.POST)
 	public String saveCareer(
@@ -25,7 +73,6 @@ public class CareerController {
 		String goodMessage = "";
 		String badMessage = "";
 		
-		Career career = new Career();
 		career.setName(name);
 		
 		try {
@@ -38,6 +85,8 @@ public class CareerController {
 		model.addAttribute("goodMessage", goodMessage);
 		model.addAttribute("badMessage", badMessage);
 		
-		return "admin";
+		return "save-career";
 	}
+	
+	
 }
