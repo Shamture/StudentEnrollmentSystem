@@ -84,7 +84,7 @@
 								<tr>
 									<td><c:out value="${career.name}" /></td>
 									<td>
-										<form action = "${pageContext.request.contextPath}/updateCareer" method="post">
+										<form action = "${pageContext.request.contextPath}/updateCareerForm" method="post">
 											<input type="hidden" name="id" value="${career.id_career}" />
     										<input class="btn btn-success btn-block btn-sm"  type="submit" value="Update">
 										</form>
@@ -100,12 +100,11 @@
 							</c:forEach>						
 						</table>						
 					</c:if>
-					
-					<!-- Alerts -->
 
+					<!-- Alerts -->
+					
 					<c:if test="${not empty goodMessage}">
 						<div class="row">
-							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-success flash">
@@ -115,12 +114,12 @@
 									<b>${goodMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
 					
 					<c:if test="${not empty badMessage}">
 						<div class="row">
-							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-danger flash">
@@ -130,6 +129,7 @@
 									<b>${badMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
 				</article>

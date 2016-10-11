@@ -89,6 +89,64 @@ public class CareerController {
 	}
 	
 	/* =========================================================== */
+	/*			         UPDATE CAREER FORM   					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/updateCareerForm", method = RequestMethod.POST)
+	public String updateCareerForm(
+			@RequestParam(value="id") Long idCareer,
+			Model model){
+		
+		String goodMessage = "";
+		String badMessage = "";
+		Career career = null;
+		
+		try {
+			career = careerService.findCareerById(idCareer);
+			goodMessage = "Career Found!";
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}		
+		
+		LOGGER.debug("deleteCareer - goodMessage: " + goodMessage);
+		LOGGER.debug("deleteCareer - badMessage: " + badMessage);
+		
+		model.addAttribute("career", career);
+		
+		return "update-career";
+	}
+	
+	/* =========================================================== */
+	/*			           UPDATING A CAREER   					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/updateCareer", method = RequestMethod.POST)
+	public String updateCareer(
+				@RequestParam(value="id") Long idCareer,
+				@RequestParam(value="name") String name,
+				Model model){
+		
+		String goodMessage = "";
+		String badMessage = "";
+		
+		Career career = careerService.findCareerById(idCareer);
+		
+		career.setName(name);
+		
+		try {
+			careerService.saveCareer(career);
+			goodMessage = "Career Saved";
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}
+		
+		LOGGER.debug("deleteCareer - goodMessage: " + goodMessage);
+		LOGGER.debug("deleteCareer - badMessage: " + badMessage);
+		
+		return "redirect:/allCareers";
+	}
+	
+	/* =========================================================== */
 	/*			         DELETE CAREER FORM   					   */
 	/* =========================================================== */
 	
@@ -108,9 +166,11 @@ public class CareerController {
 			badMessage = "A problem has ocurred!";
 		}		
 		
-		model.addAttribute("goodMessage", goodMessage);
-		model.addAttribute("badMessage", badMessage);
+		LOGGER.debug("deleteCareer - goodMessage: " + goodMessage);
+		LOGGER.debug("deleteCareer - badMessage: " + badMessage);
+		
 		model.addAttribute("career", career);
+		
 		return "delete-career";
 	}
 	
@@ -139,6 +199,6 @@ public class CareerController {
 		LOGGER.debug("deleteCareer - badMessage: " + badMessage);
 		
 		return "redirect:/allCareers";
-	}
+	}	
 	
 }

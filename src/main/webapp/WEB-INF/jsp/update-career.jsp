@@ -60,28 +60,57 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<h2>
-								Deleting Career
+								Updating Career
 							</h2>
 							
 							<hr/>
 							
-							<br/>
-							<p class="confirm-message">Career to be deleted:</p>
-							
-							<p class="confirm-element">${career.name}</p>
-							
-							<br/><br/>
-							<form action="${pageContext.request.contextPath}/deleteCareer" method="post">
-								<input type="hidden" name="id" value="${career.id_career}" />
-								
-								<p class="confirm-delete">Are you sure you want to delete?</p>
+							<form action="${pageContext.request.contextPath}/updateCareer" method="post">
 								<div class="form-group">
-									<input class="btn btn-danger btn-block" type="submit" name="delete" value="Yes, Delete!"/>
+									<input type="hidden" name="id" value="${career.id_career}" />
+								</div>
+								<div class="form-group">
+									<input class="form-control" type="text" name="name" value="${career.name}"/>
+								</div>
+								<div class="form-group">
+									<input class="btn btn-success btn-block" type="submit" name="update" value="Update"/>
 								</div>
 							</form>
 						</div>
 						<div class="col-md-3"></div>
 					</div>
+					
+					<!-- Alerts -->
+					
+					<c:if test="${not empty goodMessage}">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="alert alert-success flash">
+									<span class="close" data-dismiss="alert">
+										<span>&times;</span>
+									</span>
+									<b>${goodMessage}</b>
+								</div>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+					</c:if>
+					
+					<c:if test="${not empty badMessage}">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="alert alert-danger flash">
+									<span class="close" data-dismiss="alert">
+										<span>&times;</span>
+									</span>
+									<b>${badMessage}</b>
+								</div>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+					</c:if>
 					
 				</article>
 			</section>
@@ -93,7 +122,7 @@
 		
 		<footer class="footer">
 			<div class="container">
-				<p>SES - 2016</p>
+				<p>SES  - 2016</p>
 			</div>
 		</footer>
 		

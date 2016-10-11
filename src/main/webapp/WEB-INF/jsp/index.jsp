@@ -48,9 +48,11 @@
 					<form action="${pageContext.request.contextPath}/login" method="get">
 						<div class="form-group">
 							<input class="form-control" type="text" name="txt-username" placeholder="Username"/>
+							Username: <span class="login-help">"admin"</span>
 						</div>
 						<div class="form-group">
 							<input class="form-control" type="text" name="txt-password" placeholder="Password"/>
+							Password: <span class="login-help">"admin"</span>
 						</div>
 						<div class="form-group checkbox">
 							<label>
