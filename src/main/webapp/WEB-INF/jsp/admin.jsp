@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<title>Save Career</title>
+		<title>Admin</title>
 		
 		<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
@@ -29,11 +29,13 @@
 		<header>
 			<div class="container">
 				<div class="row">
-					<div class="left-header col-xs-12- col-sm-6 col-md-6 col-lg-6">
+					<div class="left-header-admin col-xs-12- col-sm-6 col-md-6 col-lg-6">
 						Student Enrollment System 
 						&nbsp;
 					</div>
-					<div class="right-header col-xs-12- col-sm-6 col-md-6 col-lg-6 vam">
+					<div class="right-header-admin col-xs-12- col-sm-6 col-md-6 col-lg-6 vam">
+						Admin &nbsp;&nbsp;
+						<input class="btn btn-success" type="submit" name="logout" value="Logout"/>
 					</div>
 				</div>
 			</div>
@@ -45,10 +47,15 @@
 		
 		<div class="container">
 			<section class="row section-admin">
-				<article class="col-xs-12- col-sm-12 col-md-3 col-lg-3 article1-admin">
-					
+				<article class="col-xs-12- col-sm-12 col-md-2 col-lg-2 article1-admin">
+					<ul class="list-group">
+						<a href="#" class="list-group-item">Careers</a>
+						<a href="#" class="list-group-item">Students</a>
+						<a href="#" class="list-group-item">Teachers</a>
+						<a href="#" class="list-group-item">Subjects</a>
+					</ul>
 				</article>
-				<article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 article2-admin">
+				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
 					<h2>
 						New Career
 					</h2>

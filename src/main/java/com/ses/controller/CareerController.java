@@ -38,6 +38,6 @@ public class CareerController {
 		model.addAttribute("goodMessage", goodMessage);
 		model.addAttribute("badMessage", badMessage);
 		
-		return "save-career";
+		return "admin";
 	}
 }

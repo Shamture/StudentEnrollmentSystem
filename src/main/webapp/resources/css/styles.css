@@ -23,10 +23,12 @@ header{
 }
 
 .left-header{
-	font-size: 25pt;
+	padding-top: 5px;
+	font-size: 20pt;
 }
 
 .right-header{
+	padding-top: 5px;
 	text-align: right;
 }
 
@@ -42,6 +44,17 @@ header{
 .left-header-link:visited{
 	text-decoration: none;
 }
+
+.left-header-admin{
+	padding-top: 5px;
+	font-size: 20pt;
+}
+
+.right-header-admin{
+	padding-top: 8px;
+	text-align: right;
+}
+
 
 /* ============================= */
 /*             BODY              */
@@ -79,11 +92,13 @@ section{
 
 .article1-admin{
 	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 10px;
 }
 
 .article2-admin{
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 0px;
+	padding-bottom: 10px;
 	text-align: center;
 }
 
