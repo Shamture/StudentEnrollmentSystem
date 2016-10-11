@@ -14,9 +14,10 @@ import com.ses.service.CareerService;
 
 @Controller
 public class CareerController {
-	
+	/*
 	@Autowired
 	private Career career;
+	*/
 	
 	@Autowired
 	private CareerService careerService;
@@ -36,7 +37,7 @@ public class CareerController {
 		try {
 			careers = careerService.listAllCareers();
 			if (careers.size() == 0) {
-				goodMessage = "There is no any Careers yet. Add someone!";
+				goodMessage = "There is no any Careers yet!";
 			}
 			
 		} catch (Exception e) {
@@ -73,6 +74,7 @@ public class CareerController {
 		String goodMessage = "";
 		String badMessage = "";
 		
+		Career career = new Career();
 		career.setName(name);
 		
 		try {

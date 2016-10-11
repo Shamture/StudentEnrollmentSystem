@@ -49,26 +49,52 @@
 			<section class="row section-admin">
 				<article class="col-xs-12- col-sm-12 col-md-2 col-lg-2 article1-admin">
 					<div class="list-group">
-						<a href="#" class="list-group-item">Careers</a>
+						<a href="${pageContext.request.contextPath}/allCareers" class="list-group-item">Careers</a>
 						<a href="#" class="list-group-item">Students</a>
 						<a href="#" class="list-group-item">Teachers</a>
 						<a href="#" class="list-group-item">Subjects</a>
 					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
-					<h2>
-						Careers
-					</h2>
-					
-					<a href="${pageContext.request.contextPath}/saveCareerForm" class="btn btn-success">New Career</a>
-					
+						<h2>
+							Careers
+						</h2>
+					<hr/>					
+					<a href="${pageContext.request.contextPath}/saveCareerForm" class="btn btn-primary">New Career</a>
+					<br/>
 					<c:if test="${empty careers}">
 						${goodMessage}
+						<table class="table table-border">
+							<tr>
+								<th>Name</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>							
+						</table>
 					</c:if>
 					<c:if test="${not empty careers}">
-						<c:forEach var="career" items="${careers}">
-							<c:out value="${career.name}"></c:out>
-						</c:forEach>
+						<table class="table table-bordered">
+							<tr>
+								<th>Name</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+							<c:forEach var="career" items="${careers}">
+								<tr>
+									<td><c:out value="${career.name}" /></td>
+									<td>
+										<a href="#">
+											Edit
+										</a>
+									</td>
+									<td>
+										<a href="#">
+											Delete
+										</a>
+									</td>
+								</tr>			
+							</c:forEach>						
+						</table>						
 					</c:if>
 					
 					<!-- Alerts -->

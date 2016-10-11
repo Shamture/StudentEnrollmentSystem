@@ -102,6 +102,10 @@ section{
 	text-align: center;
 }
 
+table{
+	text-align: left;
+}
+
 /* ============================= */
 /*            FOOTER             */
 /* ============================= */

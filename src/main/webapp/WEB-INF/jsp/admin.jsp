@@ -57,49 +57,10 @@
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
 					<h2>
-						New Career
+						Administration Management
 					</h2>
-					<form action="${pageContext.request.contextPath}/saveCareer" method="post">
-						<div class="form-group">
-							<input class="form-control" type="text" name="name" placeholder="Career Name"/>
-						</div>
-						<div class="form-group">
-							<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
-						</div>
-					</form>
-					
-					<!-- Alerts -->
-					
-					<c:if test="${not empty goodMessage}">
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<div class="alert alert-success flash">
-									<span class="close" data-dismiss="alert">
-										<span>&times;</span>
-									</span>
-									${goodMessage}
-								</div>
-							</div>
-						</div>
-					</c:if>
-					
-					<c:if test="${not empty badMessage}">
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<div class="alert alert-danger flash">
-									<span class="close" data-dismiss="alert">
-										<span>&times;</span>
-									</span>
-									${badMessage}
-								</div>
-							</div>
-						</div>
-					</c:if>
-					
+					<p>Choose any option from the Left Panel to Start!</p>
+					<p> &#60;===</p>
 				</article>
 			</section>
 		</div>
