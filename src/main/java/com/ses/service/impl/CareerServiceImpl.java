@@ -30,7 +30,7 @@ public class CareerServiceImpl implements CareerService {
 		LOGGER.debug("CareerServiceImpl: deleteCareer is called");
 		careerDAO.delete(career);
 	}
-
+	
 	@Override
 	public List<Career> listAllCareers() {
 		return (List<Career>) careerDAO.findAll();
@@ -41,7 +41,5 @@ public class CareerServiceImpl implements CareerService {
 		LOGGER.debug("CareerServiceImpl: findCareerById is called");
 		return careerDAO.findOne(id_career);
 	}
-	
-	
 
 }

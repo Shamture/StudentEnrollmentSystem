@@ -56,56 +56,31 @@
 					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
-					<h2>
-						Careers
-					</h2>
-					
-					<hr/>					
-					
-					<a href="${pageContext.request.contextPath}/newCareerForm" class="btn btn-primary">Create New</a>
-					<br/>
-					<c:if test="${empty careers}">
-						<table class="table table-border">
-							<tr>
-								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
-							</tr>							
-						</table>
-					</c:if>
-					<c:if test="${not empty careers}">
-						<table class="table table-bordered">
-							<tr>
-								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
-							</tr>
-							<c:forEach var="career" items="${careers}">
-								<tr>
-									<td><c:out value="${career.name}" /></td>
-									<td>
-										<form action = "${pageContext.request.contextPath}/updateCareer" method="post">
-											<input type="hidden" name="id" value="${career.id_career}" />
-    										<input class="btn btn-success btn-block btn-sm"  type="submit" value="Update">
-										</form>
-									</td>
-								
-									<td>
-										<form action = "${pageContext.request.contextPath}/deleteCareerForm" method="post">
-											<input type="hidden" name="id" value="${career.id_career}" />
-    										<input class="btn btn-danger btn-block btn-sm"  type="submit" value="Delete">
-										</form>
-									</td>
-								</tr>			
-							</c:forEach>						
-						</table>						
-					</c:if>
+					<div class="row">	
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<h2>
+								Creating New Career
+							</h2>
+							
+							<hr/>
+							
+							<form action="${pageContext.request.contextPath}/newCareer" method="post">
+								<div class="form-group">
+									<input class="form-control" type="text" name="name" placeholder="Career Name"/>
+								</div>
+								<div class="form-group">
+									<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
 					
 					<!-- Alerts -->
-
+					
 					<c:if test="${not empty goodMessage}">
 						<div class="row">
-							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-success flash">
@@ -115,12 +90,12 @@
 									<b>${goodMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
 					
 					<c:if test="${not empty badMessage}">
 						<div class="row">
-							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-danger flash">
@@ -130,8 +105,10 @@
 									<b>${badMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
+					
 				</article>
 			</section>
 		</div>

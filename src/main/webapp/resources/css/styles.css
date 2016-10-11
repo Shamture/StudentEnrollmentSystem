@@ -11,6 +11,22 @@ a:hover{
     text-decoration: none;
 }
 
+.confirm-message{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.confirm-element{
+	font-size: 12pt;
+	font-weight: bold;
+	color: DarkBlue;
+}
+
+.confirm-delete{
+	font-size: 12pt;
+	font-weight: bold;
+	color: DarkRed;
+}
 
 /* ============================= */
 /*            HEADER             */
@@ -92,7 +108,7 @@ section{
 
 .article1-admin{
 	text-align: center;
-	padding-top: 60px;
+	padding-top: 125px;
 	padding-bottom: 10px;
 }
 

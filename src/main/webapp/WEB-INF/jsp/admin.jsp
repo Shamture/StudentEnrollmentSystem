@@ -71,7 +71,7 @@
 		
 		<footer class="footer">
 			<div class="container">
-				<p>Book Store - 2016</p>
+				<p>SES - 2016</p>
 			</div>
 		</footer>
 		

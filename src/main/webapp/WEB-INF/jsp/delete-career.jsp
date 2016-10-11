@@ -56,50 +56,66 @@
 					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
-					<h2>
-						New Career
-					</h2>
-					<form action="${pageContext.request.contextPath}/saveCareer" method="post">
-						<div class="form-group">
-							<input class="form-control" type="text" name="name" placeholder="Career Name"/>
+					<div class="row">	
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<h2>
+								Deleting Career
+							</h2>
+							
+							<hr/>
+							
+							<br/>
+							<p class="confirm-message">Career to be deleted:</p>
+							
+							<p class="confirm-element">${career.name}</p>
+							
+							<br/><br/>
+							<form action="${pageContext.request.contextPath}/deleteCareer" method="post">
+								<input type="hidden" name="id" value="${career.id_career}" />
+								
+								<p class="confirm-delete">Are you sure you want to delete?</p>
+								<div class="form-group">
+									<input class="btn btn-danger btn-block" type="submit" name="save" value="Yes, Delete!"/>
+								</div>
+							</form>
 						</div>
-						<div class="form-group">
-							<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
-						</div>
-					</form>
+						<div class="col-md-3"></div>
+					</div>
 					
 					<!-- Alerts -->
 					
+					<!-- 
 					<c:if test="${not empty goodMessage}">
 						<div class="row">
-							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-success flash">
 									<span class="close" data-dismiss="alert">
 										<span>&times;</span>
 									</span>
-									${goodMessage}
+									<b>${goodMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
 					
 					<c:if test="${not empty badMessage}">
 						<div class="row">
 							<div class="col-md-4"></div>
-							<div class="col-md-4"></div>
 							<div class="col-md-4">
 								<div class="alert alert-danger flash">
 									<span class="close" data-dismiss="alert">
 										<span>&times;</span>
 									</span>
-									${badMessage}
+									<b>${badMessage}</b>
 								</div>
 							</div>
+							<div class="col-md-4"></div>
 						</div>
 					</c:if>
-					
+					-->
 				</article>
 			</section>
 		</div>
@@ -110,7 +126,7 @@
 		
 		<footer class="footer">
 			<div class="container">
-				<p>Book Store - 2016</p>
+				<p>SES - 2016</p>
 			</div>
 		</footer>
 		

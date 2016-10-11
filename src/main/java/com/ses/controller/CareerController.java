@@ -2,6 +2,8 @@ package com.ses.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +16,11 @@ import com.ses.service.CareerService;
 
 @Controller
 public class CareerController {
-	/*
-	@Autowired
-	private Career career;
-	*/
-	
+
 	@Autowired
 	private CareerService careerService;
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseTestController.class);
 	
 	/* =========================================================== */
 	/*			       SELECTING ALL CAREER    					   */
@@ -52,24 +51,23 @@ public class CareerController {
 	}
 	
 	/* =========================================================== */
-	/*			              CAREER FORM   					   */
+	/*			            NEW CAREER FORM   					   */
 	/* =========================================================== */
 	
-	@RequestMapping(value="/saveCareerForm", method = RequestMethod.GET)
+	@RequestMapping(value="/newCareerForm", method = RequestMethod.GET)
 	public String saveCareerForm(){
-		return "save-career";
+		return "new-career";
 	}
 	
 	
 	/* =========================================================== */
-	/*			           SAVING A CAREER    					   */
+	/*			        SAVING A NEW CAREER    					   */
 	/* =========================================================== */
 	
-	@RequestMapping(value="/saveCareer", method = RequestMethod.POST)
+	@RequestMapping(value="/newCareer", method = RequestMethod.POST)
 	public String saveCareer(
 				@RequestParam(value="name") String name,
-				Model model
-			){
+				Model model){
 		
 		String goodMessage = "";
 		String badMessage = "";
@@ -87,8 +85,60 @@ public class CareerController {
 		model.addAttribute("goodMessage", goodMessage);
 		model.addAttribute("badMessage", badMessage);
 		
-		return "save-career";
+		return "new-career";
 	}
 	
+	/* =========================================================== */
+	/*			         DELETE CAREER FORM   					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/deleteCareerForm", method = RequestMethod.POST)
+	public String deleteCareerForm(
+			@RequestParam(value="id") Long idCareer,
+			Model model){
+		
+		String goodMessage = "";
+		String badMessage = "";
+		Career career = null;
+		
+		try {
+			career = careerService.findCareerById(idCareer);
+			goodMessage = "Career Found!";
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}		
+		
+		model.addAttribute("goodMessage", goodMessage);
+		model.addAttribute("badMessage", badMessage);
+		model.addAttribute("career", career);
+		return "delete-career";
+	}
+	
+	/* =========================================================== */
+	/*			           DELETING A CAREER   					   */
+	/* =========================================================== */
+	
+	@RequestMapping(value="/deleteCareer", method = RequestMethod.POST)
+	public String deleteCareer(
+				@RequestParam(value="id") Long idCareer,
+				Model model){
+		
+		String goodMessage = "";
+		String badMessage = "";
+		
+		Career career = careerService.findCareerById(idCareer);
+		
+		try {
+			careerService.deleteCareer(career);
+			goodMessage = "Career Deleted";
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}
+		
+		LOGGER.debug("deleteCareer - goodMessage: " + goodMessage);
+		LOGGER.debug("deleteCareer - badMessage: " + badMessage);
+		
+		return "redirect:/allCareers";
+	}
 	
 }
