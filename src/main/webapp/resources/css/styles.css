@@ -52,14 +52,11 @@ section{
 	padding-top: 100px;
 }
 
-.article1{
-	text-align: center;
+.section-admin{
+	padding-top: 20px;
 }
 
-.article2-login{
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background: #ddd;
+.article1{
 	text-align: center;
 }
 
@@ -70,6 +67,23 @@ section{
 }
 
 .article3{
+	text-align: center;
+}
+
+.article2-login{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: #ddd;
+	text-align: center;
+}
+
+.article1-admin{
+	text-align: center;
+}
+
+.article2-admin{
+	padding-top: 15px;
+	padding-bottom: 15px;
 	text-align: center;
 }
 

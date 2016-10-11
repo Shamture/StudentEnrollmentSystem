@@ -2,31 +2,42 @@ package com.ses.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ses.domain.Career;
 import com.ses.service.CareerService;
 
 @Controller
 public class CareerController {
-
+	
 	@Autowired
 	private CareerService careerService;
 	
 	@RequestMapping(value="/saveCareer", method = RequestMethod.POST)
-	public ModelAndView saveCareer(
-				@RequestParam(value="name") String name
+	public String saveCareer(
+				@RequestParam(value="name") String name,
+				Model model
 			){
+		
+		String goodMessage = "";
+		String badMessage = "";
 		
 		Career career = new Career();
 		career.setName(name);
 		
-		careerService.saveCareer(career);
+		try {
+			careerService.saveCareer(career);
+			goodMessage = "Career is saved";
+		} catch (Exception e) {
+			badMessage = "A problem has ocurred!";
+		}
 		
-		//ModelAndView(viewName, modelName, modelObject);
-		return new ModelAndView("save-career", "message", "Career is saved");
+		model.addAttribute("goodMessage", goodMessage);
+		model.addAttribute("badMessage", badMessage);
+		
+		return "save-career";
 	}
 }

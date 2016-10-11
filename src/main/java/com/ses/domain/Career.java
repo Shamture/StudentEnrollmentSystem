@@ -20,7 +20,7 @@ public class Career {
 	@Column(name = "id_career", nullable = false)
 	private Long id_career;
 	
-	@Column(name = "name", nullable = false)
+	@Column(name = "name", nullable = false, unique= true)
 	private String name;
 	
 	@OneToMany(mappedBy = "career", fetch = FetchType.EAGER)

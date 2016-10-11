@@ -11,7 +11,14 @@
 		
 		<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
-
+		
+		<script type="text/javascript">
+            window.setTimeout(function() {
+            	  $(".flash").fadeTo(500, 0).slideUp(500, function(){
+            	      $(this).remove();
+            	  });
+            	}, 3000);
+        </script>
 	</head>
 	<body>
 	
@@ -37,11 +44,11 @@
 		<!-- ============================================================ -->
 		
 		<div class="container">
-			<section class="row">
-				<article class="col-xs-12- col-sm-12 col-md-4 col-lg-4 article1">
+			<section class="row section-admin">
+				<article class="col-xs-12- col-sm-12 col-md-3 col-lg-3 article1-admin">
 					
 				</article>
-				<article class="col-xs-12 col-sm-12 col-md-4 col-lg-4 article2">
+				<article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 article2-admin">
 					<h2>
 						New Career
 					</h2>
@@ -52,14 +59,39 @@
 						<div class="form-group">
 							<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
 						</div>
-						<div class="form-group">
-							<c:if test="${not empty message}">
-								${message}
-							</c:if>
-						</div>
 					</form>
-				</article>
-				<article class="col-xs-12 col-sm-12 col-md-4 col-lg-4 article3">
+					
+					<!-- Alerts -->
+					
+					<c:if test="${not empty goodMessage}">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="alert alert-success flash">
+									<span class="close" data-dismiss="alert">
+										<span>&times;</span>
+									</span>
+									${goodMessage}
+								</div>
+							</div>
+						</div>
+					</c:if>
+					
+					<c:if test="${not empty badMessage}">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="alert alert-danger flash">
+									<span class="close" data-dismiss="alert">
+										<span>&times;</span>
+									</span>
+									${badMessage}
+								</div>
+							</div>
+						</div>
+					</c:if>
 					
 				</article>
 			</section>
