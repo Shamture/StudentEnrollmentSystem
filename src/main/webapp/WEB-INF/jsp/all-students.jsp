@@ -56,27 +56,60 @@
 					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
-					<div class="row">	
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<h2>
-								Creating New Career
-							</h2>
-							
-							<hr/>
-							
-							<form action="${pageContext.request.contextPath}/newCareer" method="post">
-								<div class="form-group">
-									<input class="form-control" type="text" name="name" placeholder="Career Name"/>
-								</div>
-								<div class="form-group">
-									<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
-								</div>
-							</form>
-						</div>
-						<div class="col-md-3"></div>
-					</div>
+					<h2>
+						Students
+					</h2>
 					
+					<hr/>					
+					
+					<a href="${pageContext.request.contextPath}/newStudentForm" class="btn btn-primary">Create New</a>
+					<br/>
+					<c:if test="${empty students}">
+						<table class="table table-border">
+							<tr>
+								<th>Name</th>
+								<th>Username</th>
+								<th>Password</th>
+								<th>Career</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>						
+						</table>
+					</c:if>
+					<c:if test="${not empty students}">
+						<table class="table table-bordered">
+							<tr>
+								<th>Name</th>
+								<th>Username</th>
+								<th>Password</th>
+								<th>Career</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+							<c:forEach var="student" items="${students}">
+								<tr>
+									<td><c:out value="${student.name}" /></td>
+									<td><c:out value="${student.username}" /></td>
+									<td><c:out value="${student.password}" /></td>
+									<td><c:out value="${student.career.name}" /></td>
+									<td>
+										<form action = "${pageContext.request.contextPath}/updateStudentForm" method="post">
+											<input type="hidden" name="id" value="${student.id_student}" />
+    										<input class="btn btn-success btn-block btn-sm"  type="submit" value="Update">
+										</form>
+									</td>
+								
+									<td>
+										<form action = "${pageContext.request.contextPath}/deleteStudentForm" method="post">
+											<input type="hidden" name="id" value="${student.id_student}" />
+    										<input class="btn btn-danger btn-block btn-sm"  type="submit" value="Delete">
+										</form>
+									</td>
+								</tr>			
+							</c:forEach>						
+						</table>						
+					</c:if>
+
 					<!-- Alerts -->
 					
 					<c:if test="${not empty goodMessage}">
@@ -108,7 +141,6 @@
 							<div class="col-md-4"></div>
 						</div>
 					</c:if>
-					
 				</article>
 			</section>
 		</div>

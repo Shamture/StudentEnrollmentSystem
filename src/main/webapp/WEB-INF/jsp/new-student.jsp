@@ -60,19 +60,35 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<h2>
-								Creating New Career
+								Creating New Student
 							</h2>
 							
 							<hr/>
 							
-							<form action="${pageContext.request.contextPath}/newCareer" method="post">
-								<div class="form-group">
-									<input class="form-control" type="text" name="name" placeholder="Career Name"/>
-								</div>
-								<div class="form-group">
-									<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
-								</div>
-							</form>
+							<c:if test="${empty flagNeedCareer}">
+								<form action="${pageContext.request.contextPath}/newStudent" method="post">
+									<div class="form-group">
+										<input class="form-control" type="text" name="name" placeholder="Name"/>
+									</div>
+									<div class="form-group">
+										<input class="form-control" type="text" name="username" placeholder="Username"/>
+									</div>
+									<div class="form-group">
+										<input class="form-control" type="text" name="password" placeholder="Password"/>
+									</div>
+									<div class="form-group">
+										<label for="sel">Career:</label>
+										<select class="form-control" id="sel" name="idCareer">
+											<c:forEach var="career" items="${careers}">
+												<option value="${career.id_career}">${career.name}</option>
+											</c:forEach>
+										</select>
+									</div>
+									<div class="form-group">
+										<input class="btn btn-primary btn-block" type="submit" name="save" value="Save"/>
+									</div>
+								</form>
+							</c:if>
 						</div>
 						<div class="col-md-3"></div>
 					</div>
@@ -103,6 +119,21 @@
 										<span>&times;</span>
 									</span>
 									<b>${badMessage}</b>
+								</div>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+					</c:if>
+					
+					<c:if test="${not empty flagNeedCareer}">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="alert alert-danger flash">
+									<span class="close" data-dismiss="alert">
+										<span>&times;</span>
+									</span>
+									<b>${flagNeedCareer}</b>
 								</div>
 							</div>
 							<div class="col-md-4"></div>

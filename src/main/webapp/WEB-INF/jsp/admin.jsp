@@ -50,9 +50,9 @@
 				<article class="col-xs-12- col-sm-12 col-md-2 col-lg-2 article1-admin">
 					<div class="list-group">
 						<a href="${pageContext.request.contextPath}/allCareers" class="list-group-item">Careers</a>
-						<a href="#" class="list-group-item">Students</a>
-						<a href="#" class="list-group-item">Teachers</a>
-						<a href="#" class="list-group-item">Subjects</a>
+						<a href="${pageContext.request.contextPath}/allStudents" class="list-group-item">Students</a>
+						<a href="${pageContext.request.contextPath}/allTeachers" class="list-group-item">Teachers</a>
+						<a href="${pageContext.request.contextPath}/allSubjects" class="list-group-item">Subjects</a>
 					</div>
 				</article>
 				<article class="col-xs-12 col-sm-12 col-md-10 col-lg-10 article2-admin">
@@ -73,8 +73,7 @@
 			<div class="container">
 				<p>SES - 2016</p>
 			</div>
-		</footer>
-		
+		</footer>		
 		
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js" type="text/javascript"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>

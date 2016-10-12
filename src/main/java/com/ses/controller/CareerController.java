@@ -36,7 +36,7 @@ public class CareerController {
 		try {
 			careers = careerService.listAllCareers();
 			if (careers.size() == 0) {
-				goodMessage = "There is no any Careers yet!";
+				goodMessage = "There is no Careers!";
 			}
 			
 		} catch (Exception e) {
