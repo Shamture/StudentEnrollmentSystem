@@ -136,10 +136,12 @@ public class StudentController {
 		
 		String goodMessage = "";
 		String badMessage = "";
-		Student Student = null;
+		Student student = null;
+		List<Career> careers = null;
 		
 		try {
-			Student = studentService.findStudentById(idStudent);
+			careers = careerService.listAllCareers();
+			student = studentService.findStudentById(idStudent);
 			goodMessage = "Student Found!";
 		} catch (Exception e) {
 			badMessage = "A problem has ocurred!";
@@ -148,9 +150,10 @@ public class StudentController {
 		LOGGER.debug("deleteStudent - goodMessage: " + goodMessage);
 		LOGGER.debug("deleteStudent - badMessage: " + badMessage);
 		
-		model.addAttribute("Student", Student);
+		model.addAttribute("student", student);
+		model.addAttribute("careers", careers);
 		
-		return "update-Student";
+		return "update-student";
 	}
 	
 	/* =========================================================== */
@@ -161,18 +164,26 @@ public class StudentController {
 	public String updateStudent(
 				@RequestParam(value="id") Long idStudent,
 				@RequestParam(value="name") String name,
+				@RequestParam(value="username") String username,
+				@RequestParam(value="password") String password,
+				@RequestParam(value="idCareer") Long idCareer,
 				Model model){
 		
 		String goodMessage = "";
 		String badMessage = "";
+		Career career = null;
 		
-		Student Student = studentService.findStudentById(idStudent);
+		Student student = studentService.findStudentById(idStudent);
+		career = careerService.findCareerById(idCareer);
 		
-		Student.setName(name);
+		student.setName(name);
+		student.setUsername(username);
+		student.setPassword(password);
+		student.setCareer(career);
 		
 		try {
-			studentService.saveStudent(Student);
-			goodMessage = "Student Saved";
+			studentService.saveStudent(student);
+			goodMessage = "Student Updated";
 		} catch (Exception e) {
 			badMessage = "A problem has ocurred!";
 		}
