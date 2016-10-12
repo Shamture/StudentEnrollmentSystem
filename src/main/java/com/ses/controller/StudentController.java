@@ -122,6 +122,7 @@ public class StudentController {
 		model.addAttribute("badMessage", badMessage);
 		
 		return "new-student";
+		
 	}
 	
 	/* =========================================================== */
@@ -193,10 +194,10 @@ public class StudentController {
 		
 		String goodMessage = "";
 		String badMessage = "";
-		Student Student = null;
+		Student student = null;
 		
 		try {
-			Student = studentService.findStudentById(idStudent);
+			student = studentService.findStudentById(idStudent);
 			goodMessage = "Student Found!";
 		} catch (Exception e) {
 			badMessage = "A problem has ocurred!";
@@ -205,9 +206,9 @@ public class StudentController {
 		LOGGER.debug("deleteStudent - goodMessage: " + goodMessage);
 		LOGGER.debug("deleteStudent - badMessage: " + badMessage);
 		
-		model.addAttribute("Student", Student);
+		model.addAttribute("student", student);
 		
-		return "delete-Student";
+		return "delete-student";
 	}
 	
 	/* =========================================================== */
@@ -222,10 +223,10 @@ public class StudentController {
 		String goodMessage = "";
 		String badMessage = "";
 		
-		Student Student = studentService.findStudentById(idStudent);
+		Student student = studentService.findStudentById(idStudent);
 		
 		try {
-			studentService.deleteStudent(Student);
+			studentService.deleteStudent(student);
 			goodMessage = "Student Deleted";
 		} catch (Exception e) {
 			badMessage = "A problem has ocurred!";

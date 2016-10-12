@@ -60,19 +60,20 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<h2>
-								Deleting Career
+								Deleting Student
 							</h2>
 							
 							<hr/>
 							
 							<br/>
-							<p class="confirm-message">Career to be deleted:</p>
+							<p class="confirm-message">Student to be deleted:</p>
 							<br/>
-							<p class="confirm-element">${career.name}</p>
+							<p class="confirm-element">${student.name}</p>
+							<p class="confirm-element">${student.career.name}</p>
 							
 							<br/><br/>
-							<form action="${pageContext.request.contextPath}/deleteCareer" method="post">
-								<input type="hidden" name="id" value="${career.id_career}" />
+							<form action="${pageContext.request.contextPath}/deleteStudent" method="post">
+								<input type="hidden" name="id" value="${student.id_student}" />
 								
 								<p class="confirm-delete">Are you sure you want to delete?</p>
 								<div class="form-group">
