@@ -121,7 +121,7 @@ public class StudentController {
 		model.addAttribute("goodMessage", goodMessage);
 		model.addAttribute("badMessage", badMessage);
 		
-		return "new-student";
+		return "redirect:/newStudentForm";
 		
 	}
 	
