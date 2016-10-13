@@ -35,7 +35,7 @@
 					</div>
 					<div class="right-header-admin col-xs-12- col-sm-6 col-md-6 col-lg-6 vam">
 						Admin &nbsp;&nbsp;
-						<input class="btn btn-success" type="submit" name="logout" value="Logout"/>
+						<a href="${pageContext.request.contextPath}/logout" class="btn btn-success">Logout</a>
 					</div>
 				</div>
 			</div>

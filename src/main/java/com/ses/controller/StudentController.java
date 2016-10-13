@@ -103,6 +103,7 @@ public class StudentController {
 		String badMessage = "";
 		Student student = new Student();
 		Career career = null;
+		List<Career> careers = null;
 		
 		career = careerService.findCareerById(idCareer);
 		
@@ -112,6 +113,7 @@ public class StudentController {
 		student.setCareer(career);
 		
 		try {
+			careers = careerService.listAllCareers();
 			studentService.saveStudent(student);
 			goodMessage = "Student is saved";
 		} catch (Exception e) {
@@ -120,8 +122,9 @@ public class StudentController {
 		
 		model.addAttribute("goodMessage", goodMessage);
 		model.addAttribute("badMessage", badMessage);
+		model.addAttribute("careers", careers);
 		
-		return "redirect:/newStudentForm";
+		return "new-student";
 		
 	}
 	
