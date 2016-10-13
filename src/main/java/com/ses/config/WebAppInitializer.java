@@ -37,7 +37,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>com.bookstore.config..WebConfig</param-value>
+			<param-value>com.ses.config.WebConfig</param-value>
 		</init-param>
 		===============================================================================================================
 		 */
