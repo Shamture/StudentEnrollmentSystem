@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -16,10 +17,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "career")
+@SequenceGenerator(name="my_seq", initialValue=1, allocationSize=100)
 public class Career {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="my_seq")
 	@Column(name = "id_career", nullable = false)
 	private Long id_career;
 	
