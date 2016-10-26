@@ -35,11 +35,9 @@ create table teacher(
 
 create table student(
 	id_student int primary key auto_increment,
-    firstname varchar(200),
-    lastname varchar(200),
+    name varchar(200),
     username varchar(200),
     password varchar(200),
-    status tinyint(1),
     id_career int
 );
 
@@ -123,20 +121,20 @@ INSERT VALUES TO BASIC TABLES
 #        STUDENT       #
 #----------------------#
 
-	insert into student (firstname, lastname, username, password, status, id_career) 
-	values('Fernando','Romero', 'fromero', 'fromero', 1, 1);
+	insert into student (name, username, password, id_career) 
+	values('Fernando Romero', 'fromero', 'fromero', 1);
 
-	insert into student (firstname, lastname, username, password, status, id_career) 
-	values('Tatian','Valencia', 'tvalencia', 'tvalencia', 1, 3);
+	insert into student (name, username, password, id_career) 
+	values('Tatian Valencia', 'tvalencia', 'tvalencia', 3);
 
-	insert into student (firstname, lastname, username, password, status, id_career) 
-	values('Yesenia','Romero', 'yromero', 'yromero', 1, 2);
+	insert into student (name, username, password, id_career) 
+	values('Yesenia Romero', 'yromero', 'yromero', 2);
 
-	insert into student (firstname, lastname, username, password, status, id_career) 
-	values('Nathalia','Flores', 'nflores', 'nflores', 1,3);
+	insert into student (name, username, password, id_career) 
+	values('Nathalia Flores', 'nflores', 'nflores',3);
 
-	insert into student (firstname, lastname, username, password, status, id_career) 
-	values('Carlos','Romero', 'cromero', 'cromero', 1, 1);
+	insert into student (name, username, password, id_career) 
+	values('Carlos Romero', 'cromero', 'cromero', 1);
 
 
 /*==========================================
@@ -279,21 +277,18 @@ INSERT VALUES TO CROSS TABLES
         
 	/*========================================*/
 
+
+/*==========================================
+COMMIT
+==========================================*/
+
+commit;
+
 /*==========================================
 SELECTS
 ==========================================*/
 
 
 select * from career;
-select * from teacher;
-select * from subject;
 select * from student;
-
-select * from career_x_subject;
-select * from career_x_teacher;
-select * from section;
-
-
-
-
 
